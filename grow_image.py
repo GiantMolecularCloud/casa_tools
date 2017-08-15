@@ -33,7 +33,7 @@ grow_image(infile  = 'test.image',
         mytmp['infile'] = infile
         mytmp['outfile'] = outfile
         mytmp['growpix'] = growpix
-	pathname="file:///mnt/fhgfs/krieger/scripts/casa_tools/"
+	pathname="file:///mnt/fhgfs/krieger/modules/casa_tools/"
 	trec = casac.utils().torecord(pathname+'grow_image.xml')
 
         casalog.origin('grow_image')

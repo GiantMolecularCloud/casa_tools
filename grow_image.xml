@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" ?>
+
+<casaxml xmlns="http://casa.nrao.edu/schema/psetTypes.html"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://casa.nrao.edu/schema/casa.xsd
+file:///opt/casa/code/xmlcasa/xml/casa.xsd">
+
+<task type="function" name="grow_image" category="casa_tools">
+
+  <shortdescription>Grows the spatial extend of an image.</shortdescription>
+      
+  <description>
+grow image: grow the size of an image
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Grow the spatial size of an image by the given number of pixels. Growing is
+done symmetrically to each side at the moment. The final image will be
+larger by 2*growpix.
+To be done: option to treat the input size as the target size
+            option to enter physical size (e.g. in arcmin)
+
+Mandatory unnamed, ordered arguments:
+    infile      Path and file name of the input file. Must be a format known
+                to CASA: image, fits or miriad image
+    outfile     Path and file name of the grown image. Is always a CASA image
+    growpix     Number of pixels that the image is grown. A single integer
+                grows the image on all four sides. Differing grow scales can 
+                be given as a list of two integers.
+    </description>
+
+  <input>
+
+    <param type="string" name="infile" mustexist="true">
+      <description>image to be grown</description>
+      <value></value>
+    </param>
+    <param type="string" name="outfile">
+      <description>grown image</description>
+      <value></value>
+    </param>
+    <param type="any" name="growpix">
+      <description>Number of pixels to grow the image (on both sides!). Must be either a single int or a list of two ints.</description>
+      <any type="variant" limittypes="int intArray"/>
+      <value type="int">100</value>
+<!--        <value type="vector">
+            <value>100</value><value>100</value>
+        </value>-->
+    </param>
+    
+  <constraints>
+  </constraints>
+
+  </input>
+
+  <returns type="void"/>
+
+  <example>
+grow_image(infile  = 'test.image',
+            outfile = 'test_grown.image',
+            growpix = 100
+            )
+grow_image(infile  = 'test.image',
+            outfile = 'test_grown.image',
+            growpix = [100,200]
+            )
+  </example>
+
+</task>
+
+</casaxml>

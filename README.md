@@ -12,7 +12,7 @@ This repo contains compiled tasks that can be imported into CASA by running myta
 
 ## task details
 
-# `grow_image`
+#### `grow_image`
 ```
 inp(grow_image)
 #  grow_image :: Grows the spatial extend of an image.
